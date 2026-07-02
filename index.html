@@ -1,7 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport's Site</title>
+    <style>
+        /* CSS Reset & Design Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
 
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 80px 20px 0 20px;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         }
         .hero h1 {
@@ -39,7 +111,7 @@
 
         /* Services & Features Section */
         .services {
-            padding: 100px 8%;
+            padding: 120px 8% 80px 8%;
             text-align: center;
         }
         .services h2 {
@@ -80,7 +152,7 @@
 
         /* Contact Section */
         .contact {
-            padding: 100px 8%;
+            padding: 120px 8% 100px 8%;
             background-color: #0b0f19;
             text-align: center;
         }
@@ -110,13 +182,25 @@
             border-color: var(--accent-color);
         }
 
-        /* Footer */
+        /* Footer & Socials */
         footer {
             padding: 40px;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-muted);
             font-size: 14px;
+        }
+        .social-links {
+            margin-bottom: 15px;
+        }
+        .social-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
         }
 
         /* Mobile Responsive Fixes */
@@ -131,7 +215,7 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="logo">Ishan's Site</div>
+        <div class="logo">Sport's Site</div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#services">Features</a></li>
@@ -151,18 +235,18 @@
         <h2>Engineered for Performance</h2>
         <div class="grid">
             <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Blazing Fast</h3>
+                <div class="card-icon">存放🏟️</div>
+                <h3>Match Fixtures</h3>
                 <p>Optimized architecture ensures that your pages load up in the blink of an eye.</p>
             </div>
             <div class="card">
-                <div class="card-icon">📱</div>
-                <h3>Fully Responsive</h3>
+                <div class="card-icon">📊</div>
+                <h3>Match Results</h3>
                 <p>Looks magnificent and scales perfectly across phones, tablets, and desktop computers.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🎨</div>
-                <h3>Modern Aesthetics</h3>
+                <div class="card-icon">🏏</div>
+                <h3>Play Cricket</h3>
                 <p>Designed with a trendy dark glassmorphism layout and striking accent colors.</p>
             </div>
         </div>
@@ -181,6 +265,11 @@
 
     <!-- Footer -->
     <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a> | 
+            <a href="#" target="_blank">GitHub</a> | 
+            <a href="#" target="_blank">LinkedIn</a>
+        </div>
         &copy; 2026 Ishan | Hosted completely free on Vercel
     </footer>
 
