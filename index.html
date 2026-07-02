@@ -151,11 +151,11 @@
             margin-bottom: 10px;
         }
 
-        /* Hidden Details Menu */
+        /* Hidden Details Menu Layout */
         .match-details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out, margin-top 0.3s ease;
+            transition: max-height 0.4s ease-out, margin-top 0.3s ease, border 0.2s ease;
             background: rgba(15, 23, 42, 0.6);
             border-radius: 8px;
         }
@@ -169,9 +169,10 @@
             gap: 8px;
             margin: 0;
         }
-        /* Open State when toggled */
+        
+        /* Active Dropdown State styles */
         .card.active .match-details {
-            max-height: 500px;
+            max-height: 300px;
             margin-top: 15px;
             border: 1px dashed var(--accent-color);
         }
@@ -262,7 +263,7 @@
         <div class="grid">
             
             <!-- Card 1: Match Fixtures -->
-            <div class="card" onclick="toggleCard(this)">
+            <div class="card">
                 <div class="card-icon">🏟️</div>
                 <h3>Match Fixtures</h3>
                 <p>Click to see upcoming schedules</p>
@@ -277,7 +278,7 @@
             </div>
 
             <!-- Card 2: Match Results -->
-            <div class="card" onclick="toggleCard(this)">
+            <div class="card">
                 <div class="card-icon">📊</div>
                 <h3>Match Results</h3>
                 <p>Click to see recent match scorecards</p>
@@ -289,7 +290,7 @@
             </div>
 
             <!-- Card 3: Play Cricket (Clean Info Card) -->
-            <div class="card" onclick="toggleCard(this)">
+            <div class="card">
                 <div class="card-icon">🏏</div>
                 <h3>Play Cricket</h3>
                 <p>Click to see cricket status</p>
@@ -314,3 +315,4 @@
     </section>
 
     <footer>
+        <div class="social-links">
