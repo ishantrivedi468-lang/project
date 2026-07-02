@@ -130,9 +130,10 @@
             border-radius: 15px;
             transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            cursor: pointer;
+            cursor: pointer; /* क्लिक करने योग्य लुक */
         }
         .card:hover {
+            transform: translateY(-5px);
             border: 1px solid var(--accent-color);
         }
         .card-icon {
@@ -150,7 +151,7 @@
             margin-bottom: 10px;
         }
 
-        /* Hidden Details Menu */
+        /* Hidden Details Menu (शुरुआत में छुपा हुआ रहेगा) */
         .match-details {
             max-height: 0;
             overflow: hidden;
@@ -158,41 +159,17 @@
             background: rgba(15, 23, 42, 0.6);
             border-radius: 8px;
         }
-        .match-details .fixture-list {
+        .match-details p {
             padding: 15px;
-            font-size: 15px;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0;
         }
+        /* Open State when toggled */
         .card.active .match-details {
-            max-height: 500px;
+            max-height: 100px;
             margin-top: 15px;
             border: 1px dashed var(--accent-color);
-        }
-
-        /* Game UI Styling */
-        .game-box {
-            padding: 15px;
-            text-align: center;
-        }
-        .game-btn {
-            background: #22c55e;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .game-btn:hover { background: #16a34a; }
-        .score-board {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 10px 0;
-            color: var(--accent-color);
         }
 
         /* Contact Section */
@@ -281,37 +258,66 @@
         <div class="grid">
             
             <!-- Card 1: Match Fixtures -->
-            <div class="card" onclick="toggleCard(event, this)">
-                <div class="card-icon">🏟️</div>
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-icon">存放🏟️</div>
                 <h3>Match Fixtures</h3>
                 <p>Click to see upcoming schedules</p>
                 <div class="match-details">
-                    <div class="fixture-list">
-                        <p style="color: var(--accent-color);">📅 4 JULY: IND VS ENG</p>
-                        <p style="color: var(--accent-color);">📅 7 JULY: IND VS ENG</p>
-                        <p style="color: var(--accent-color);">📅 9 JULY: IND VS ENG</p>
-                        <p style="color: var(--accent-color);">📅 11 JULY: IND VS ENG</p>
-                    </div>
+                    <p style="color: var(--accent-color);">4 JULY: IND VS ENG</p>
                 </div>
             </div>
 
             <!-- Card 2: Match Results -->
-            <div class="card" onclick="toggleCard(event, this)">
+            <div class="card" onclick="toggleCard(this)">
                 <div class="card-icon">📊</div>
                 <h3>Match Results</h3>
                 <p>Click to see recent match scorecards</p>
                 <div class="match-details">
-                    <div class="fixture-list" style="text-align: center;">
-                        <p style="color: #ef4444;">1 JULY: IND VS ENG <br>(Abandoned due to rain)</p>
-                    </div>
+                    <p style="color: #ef4444;">1 JULY: IND VS ENG <br>(Abandoned due to rain)</p>
                 </div>
             </div>
 
-            <!-- Card 3: Play Cricket (Interactive Game Inside) -->
-            <div class="card" onclick="toggleCard(event, this)">
+            <!-- Card 3: Play Cricket -->
+            <div class="card" onclick="toggleCard(this)">
                 <div class="card-icon">🏏</div>
                 <h3>Play Cricket</h3>
-                <p>Click to open the mini cricket game</p>
+                <p>Click to see online matches</p>
                 <div class="match-details">
-                    <div class="game-box" onclick="event.stopPropagation();">
-                        <div class="score-board" id="live-score">Score: 0/0 (0.0 Overs)</div>
+                    <p style="color: #4ade80;">No active online games right now</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Get In Touch</h2>
+        <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <textarea rows="5" placeholder="Write your message here..." required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a> | 
+            <a href="#" target="_blank">GitHub</a> | 
+            <a href="#" target="_blank">LinkedIn</a>
+        </div>
+        &copy; 2026 Ishan | Hosted completely free on Vercel
+    </footer>
+
+    <!-- JavaScript code for handling card clicks -->
+    <script>
+        function toggleCard(cardElement) {
+            // Toggle active class on clicked card
+            cardElement.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
