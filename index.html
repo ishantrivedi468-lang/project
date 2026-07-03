@@ -304,37 +304,38 @@
         <h2>Engineered for Performance</h2>
         <div class="grid">
             
-           <!-- Card 1 : Basketball Shoot -->
-
-<div class="card">
+           <div class="card">
 
     <div class="card-icon">🏀</div>
 
-    <h3>Basketball Shoot</h3>
+    <h3>Basketball Challenge</h3>
 
-    <p>Take 10 shots and score as many baskets as you can!</p>
+    <p>Stop the moving ball in the green zone!</p>
 
-    <div style="font-size:80px; margin:20px 0;">
-        🏀 🗑️
+    <div style="background:#111;height:30px;border-radius:20px;overflow:hidden;margin:20px 0;position:relative;">
+
+        <div style="position:absolute;left:45%;width:50px;height:100%;background:lime;"></div>
+
+        <div id="ball"
+             style="position:absolute;
+                    left:0;
+                    top:2px;
+                    font-size:24px;">
+            🏀
+        </div>
+
     </div>
 
     <button class="btn" onclick="shootBasket()">
         SHOOT
     </button>
 
-    <h3 id="basketScore">
-        Score : 0 / 10
+    <h3 id="basketResult">
+        Hit the Green Zone!
     </h3>
 
-    <p id="basketResult">
-        Press SHOOT to start!
-    </p>
-
-    <button class="btn" onclick="restartBasket()">
-        Restart
-    </button>
-
 </div>
+            
            <!-- Card 2 : Penalty Shootout -->
 
 <div class="card">
@@ -539,70 +540,38 @@ function restartPenalty(){
     document.getElementById("keeper").style.left = "50%";
 
 }
+// ===== Basketball Challenge =====
 
-        // ===== Basketball Shoot =====
+let ball = document.getElementById("ball");
 
-let basketScore = 0;
-let basketShots = 0;
+let pos = 0;
+let dir = 2;
+
+setInterval(() => {
+
+    pos += dir;
+
+    if(pos >= 90 || pos <= 0){
+        dir *= -1;
+    }
+
+    ball.style.left = pos + "%";
+
+},20);
 
 function shootBasket(){
 
-    if(basketShots >= 10){
-        document.getElementById("basketResult").innerHTML =
-        "🏁 Game Over! Press Restart";
-        return;
-    }
-
-    basketShots++;
-
-    let goal = Math.random() < 0.7;
-
-    if(goal){
-
-        basketScore++;
+    if(pos >= 43 && pos <= 57){
 
         document.getElementById("basketResult").innerHTML =
-        "🏀 SWISH! Basket!";
+        "🏀 PERFECT SHOT!";
 
     }else{
 
         document.getElementById("basketResult").innerHTML =
-        "❌ Missed!";
+        "❌ MISS!";
 
     }
-
-    document.getElementById("basketScore").innerHTML =
-    "Score : " + basketScore + " / " + basketShots;
-
-    if(basketShots == 10){
-
-        if(basketScore >= 7){
-            document.getElementById("basketResult").innerHTML =
-            "🏆 Amazing! You scored " + basketScore + "/10";
-        }
-        else if(basketScore >= 4){
-            document.getElementById("basketResult").innerHTML =
-            "👍 Good Job! You scored " + basketScore + "/10";
-        }
-        else{
-            document.getElementById("basketResult").innerHTML =
-            "😢 Better Luck Next Time! You scored " + basketScore + "/10";
-        }
-
-    }
-
-}
-
-function restartBasket(){
-
-    basketScore = 0;
-    basketShots = 0;
-
-    document.getElementById("basketScore").innerHTML =
-    "Score : 0 / 10";
-
-    document.getElementById("basketResult").innerHTML =
-    "Press SHOOT to start!";
 
 }
     </script>
