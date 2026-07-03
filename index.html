@@ -283,17 +283,26 @@
                 </div>
             </div>
 
-            <div class="card">
+   <div class="card">
     <div class="card-icon">🏏</div>
-    <h3>Play Cricket</h3>
+    <h3>Hand Cricket</h3>
 
-    <input type="number" id="guess" placeholder="1-10">
+    <p>Choose your shot (1-6)</p>
+
+    <button class="btn" onclick="play(1)">1</button>
+    <button class="btn" onclick="play(2)">2</button>
+    <button class="btn" onclick="play(3)">3</button>
 
     <br><br>
 
-    <button class="btn" onclick="playGame()">Bat</button>
+    <button class="btn" onclick="play(4)">4</button>
+    <button class="btn" onclick="play(5)">5</button>
+    <button class="btn" onclick="play(6)">6</button>
 
-    <p id="gameResult"></p>
+    <h3 id="score">Score : 0</h3>
+    <p id="result"></p>
+
+    <button class="btn" onclick="restart()">Restart</button>
 </div>
     </section>
 
@@ -324,18 +333,45 @@
             // Toggle active class on clicked card
             cardElement.classList.toggle('active');
         }
-        function playGame() {
+     let score = 0;
+let out = false;
 
-    let computer = Math.floor(Math.random() * 10) + 1;
-    let user = Number(document.getElementById("guess").value);
+function play(user){
+
+    if(out){
+        return;
+    }
+
+    let computer = Math.floor(Math.random()*6)+1;
 
     if(user == computer){
-        document.getElementById("gameResult").innerHTML =
-        "🏆 SIX! You Win";
+
+        document.getElementById("result").innerHTML =
+        "❌ OUT! Computer chose " + computer;
+
+        out = true;
+
     }else{
-        document.getElementById("gameResult").innerHTML =
-        "❌ Bowled! Number was " + computer;
+
+        score += user;
+
+        document.getElementById("score").innerHTML =
+        "Score : " + score;
+
+        document.getElementById("result").innerHTML =
+        "🏏 You: " + user + " | 🤖 Computer: " + computer;
+
     }
+
+}
+
+function restart(){
+
+    score = 0;
+    out = false;
+
+    document.getElementById("score").innerHTML = "Score : 0";
+    document.getElementById("result").innerHTML = "";
 
 }
     </script>
