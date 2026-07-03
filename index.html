@@ -283,17 +283,18 @@
                 </div>
             </div>
 
-            <!-- Card 3: Play Cricket -->
-            <div class="card" onclick="toggleCard(this)">
-                <div class="card-icon">🏏</div>
-                <h3>Play Cricket</h3>
-                <p>Click to see online matches</p>
-                <div class="match-details">
-                    <p style="color: #4ade80;">No active online games right now</p>
-                </div>
-            </div>
+            <div class="card">
+    <div class="card-icon">🏏</div>
+    <h3>Play Cricket</h3>
 
-        </div>
+    <input type="number" id="guess" placeholder="1-10">
+
+    <br><br>
+
+    <button class="btn" onclick="playGame()">Bat</button>
+
+    <p id="gameResult"></p>
+</div>
     </section>
 
     <!-- Contact Section -->
@@ -323,6 +324,20 @@
             // Toggle active class on clicked card
             cardElement.classList.toggle('active');
         }
+        function playGame() {
+
+    let computer = Math.floor(Math.random() * 10) + 1;
+    let user = Number(document.getElementById("guess").value);
+
+    if(user == computer){
+        document.getElementById("gameResult").innerHTML =
+        "🏆 SIX! You Win";
+    }else{
+        document.getElementById("gameResult").innerHTML =
+        "❌ Bowled! Number was " + computer;
+    }
+
+}
     </script>
 
 </body>
