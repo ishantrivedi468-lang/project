@@ -304,22 +304,37 @@
         <h2>Engineered for Performance</h2>
         <div class="grid">
             
-            <!-- Card 1: Match Fixtures -->
-<div class="card" onclick="toggleCard(this)">
-    <div class="card-icon">🏟️</div>
-    <h3>Match Fixtures</h3>
-    <p>Click to see upcoming schedules</p>
+           <!-- Card 1 : Basketball Shoot -->
 
-    <div class="match-details">
-        <p style="color: var(--accent-color);">
-            4 JULY: IND VS ENG <br>
-            7 JULY: IND VS ENG <br>
-            9 JULY: IND VS ENG <br>
-            11 JULY: IND VS ENG
-        </p>
+<div class="card">
+
+    <div class="card-icon">🏀</div>
+
+    <h3>Basketball Shoot</h3>
+
+    <p>Take 10 shots and score as many baskets as you can!</p>
+
+    <div style="font-size:80px; margin:20px 0;">
+        🏀 🗑️
     </div>
-</div>
 
+    <button class="btn" onclick="shootBasket()">
+        SHOOT
+    </button>
+
+    <h3 id="basketScore">
+        Score : 0 / 10
+    </h3>
+
+    <p id="basketResult">
+        Press SHOOT to start!
+    </p>
+
+    <button class="btn" onclick="restartBasket()">
+        Restart
+    </button>
+
+</div>
            <!-- Card 2 : Penalty Shootout -->
 
 <div class="card">
@@ -522,6 +537,72 @@ function restartPenalty(){
     "Take your first shot!";
 
     document.getElementById("keeper").style.left = "50%";
+
+}
+
+        // ===== Basketball Shoot =====
+
+let basketScore = 0;
+let basketShots = 0;
+
+function shootBasket(){
+
+    if(basketShots >= 10){
+        document.getElementById("basketResult").innerHTML =
+        "🏁 Game Over! Press Restart";
+        return;
+    }
+
+    basketShots++;
+
+    let goal = Math.random() < 0.7;
+
+    if(goal){
+
+        basketScore++;
+
+        document.getElementById("basketResult").innerHTML =
+        "🏀 SWISH! Basket!";
+
+    }else{
+
+        document.getElementById("basketResult").innerHTML =
+        "❌ Missed!";
+
+    }
+
+    document.getElementById("basketScore").innerHTML =
+    "Score : " + basketScore + " / " + basketShots;
+
+    if(basketShots == 10){
+
+        if(basketScore >= 7){
+            document.getElementById("basketResult").innerHTML =
+            "🏆 Amazing! You scored " + basketScore + "/10";
+        }
+        else if(basketScore >= 4){
+            document.getElementById("basketResult").innerHTML =
+            "👍 Good Job! You scored " + basketScore + "/10";
+        }
+        else{
+            document.getElementById("basketResult").innerHTML =
+            "😢 Better Luck Next Time! You scored " + basketScore + "/10";
+        }
+
+    }
+
+}
+
+function restartBasket(){
+
+    basketScore = 0;
+    basketShots = 0;
+
+    document.getElementById("basketScore").innerHTML =
+    "Score : 0 / 10";
+
+    document.getElementById("basketResult").innerHTML =
+    "Press SHOOT to start!";
 
 }
     </script>
