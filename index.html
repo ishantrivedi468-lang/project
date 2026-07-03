@@ -496,6 +496,18 @@ function shoot(direction){
     document.getElementById("goalScore").innerHTML =
     "Goals : " + goals + " / " + shots;
 
+    if(shots == 5){
+
+    if(goals >= 3){
+        document.getElementById("goalResult").innerHTML =
+        "🏆 You Win!";
+    }else{
+        document.getElementById("goalResult").innerHTML =
+        "😢 You Lose!";
+    }
+
+}
+
 }
 
 function restartPenalty(){
