@@ -119,12 +119,11 @@
             margin-bottom: 50px;
             font-weight: 700;
         }
-     .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    padding: 0 80px;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
         .card {
             background-color: var(--card-bg);
             padding: 40px 30px;
@@ -213,14 +212,6 @@
             color: var(--text-muted);
             font-size: 14px;
         }
-
-.made-by{
-    margin-top: 60px;
-    font-size: 14px;
-    color: #38bdf8;
-    font-weight: bold;
-}
-        
         .social-links {
             margin-bottom: 15px;
         }
@@ -316,62 +307,20 @@
     transition:0.3s;
 }
 
+/* Mobile Responsive Fixes */
 @media (max-width: 768px) {
-
-    /* NAVBAR */
-    .nav-links {
-        display: none;
-    }
-
-    /* HERO */
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    /* HEADINGS */
-    .services h2,
-    .contact h2 {
-        font-size: 2rem;
-    }
-
-    /* GRID (IMPORTANT FIX) */
-    .grid {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 40px;
-    padding: 0 20px;
+    .nav-links { display: none; } 
+    .hero h1 { font-size: 2.5rem; }
+    .services h2, .contact h2 { font-size: 2rem; }
 }
-    }
-
-    /* BUTTONS */
-    .btn {
-        padding: 12px 28px;
-        font-size: 14px;
-    }
-
-    /* SPORTS LINKS */
-    .sports-links {
-        gap: 12px;
-    }
-
-    .sports-links a {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    /* CARDS */
-    .card {
-        padding: 25px 20px;
-    }
-
-    /* IMAGES */
-    .player-img {
-        height: 200px;
-    }
 }
+        
+        /* Mobile Responsive Fixes */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } 
+            .hero h1 { font-size: 2.5rem; }
+            .services h2, .contact h2 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -401,11 +350,9 @@ Three Sports. One Arena. Endless Fun.
 </div>
 
 <a href="#services" class="btn">Explore Games</a>
-
-        <p class="made-by">
+        <p style="margin-top:20px; font-size:14px; color:#38bdf8; font-weight:bold;">
 🎮 Made by Ishan
 </p>
-    
     </section>
 
     <!-- Services Section -->
@@ -707,4 +654,3 @@ function shootBasket(){
 
 </body>
 </html>
-
