@@ -287,25 +287,29 @@
     transform:scale(1.03);
  {
 .sports-links{
-    display:flex;
-    justify-content:center;
-    gap:25px;
     margin:25px 0;
-    flex-wrap:wrap;
 }
 
 .sports-links a{
+    display:inline-block;
+    margin:10px;
+    padding:10px 20px;
+    background:#1e293b;
+    border:1px solid #38bdf8;
+    border-radius:30px;
     color:white;
     text-decoration:none;
-    font-size:22px;
+    font-size:18px;
     font-weight:bold;
     transition:0.3s;
 }
 
 .sports-links a:hover{
-    color:#38bdf8;
-    transform:scale(1.1);
+    background:#38bdf8;
+    color:#0f172a;
+    transform:translateY(-3px);
 }
+   
 
 /* Mobile Responsive Fixes */
 @media (max-width: 768px) {
