@@ -285,14 +285,17 @@
 
 .player-img:hover{
     transform:scale(1.03);
- {
-.sports-links{
-    margin:25px 0;
+
+    .sports-links{
+    margin:30px 0;
+    display:flex;
+    justify-content:center;
+    gap:20px;   /* 👈 BEST way */
+    flex-wrap:wrap;
 }
 
 .sports-links a{
     display:inline-block;
-    margin:10px;
     padding:10px 20px;
     background:#1e293b;
     border:1px solid #38bdf8;
@@ -303,13 +306,6 @@
     font-weight:bold;
     transition:0.3s;
 }
-
-.sports-links a:hover{
-    background:#38bdf8;
-    color:#0f172a;
-    transform:translateY(-3px);
-}
-   
 
 /* Mobile Responsive Fixes */
 @media (max-width: 768px) {
