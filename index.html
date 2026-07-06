@@ -272,6 +272,21 @@
     font-weight:bold;
     color:#38bdf8;
 }
+
+        .player-img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:12px;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.player-img:hover{
+    transform:scale(1.03);
+}
+        
         /* Mobile Responsive Fixes */
         @media (max-width: 768px) {
             .nav-links { display: none; } 
@@ -342,6 +357,10 @@
            <!-- Card 2 : Penalty Shootout -->
 
 <div class="card">
+
+    <img src="images/ronaldo.jpg"
+     alt="Cristiano Ronaldo"
+     class="player-img">
 
     <div class="card-icon">⚽</div>
 
