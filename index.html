@@ -285,6 +285,34 @@
 
 .player-img:hover{
     transform:scale(1.03);
+ {
+.sports-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:25px 0;
+    flex-wrap:wrap;
+}
+
+.sports-links a{
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.sports-links a:hover{
+    color:#38bdf8;
+    transform:scale(1.1);
+}
+
+/* Mobile Responsive Fixes */
+@media (max-width: 768px) {
+    .nav-links { display: none; } 
+    .hero h1 { font-size: 2.5rem; }
+    .services h2, .contact h2 { font-size: 2rem; }
+}
 }
         
         /* Mobile Responsive Fixes */
@@ -310,8 +338,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to <span>Gaming Corner</span></h1>
-       <p>A fast-paced mini game arena 🎮 featuring Basketball shots, FootBall Penalty duels and Hand Cricket battles. Play, score, and challenge yourself every time!</p>
-       <a href="#services" class="btn">Explore Games</a>
+
+<p>
+Three Sports. One Arena. Endless Fun.
+</p>
+
+<div class="sports-links">
+    <a href="#football">⚽ Football</a>
+    <a href="#cricket">🏏 Cricket</a>
+    <a href="#basketball">🏀 Basketball</a>
+</div>
+
+<a href="#services" class="btn">Explore Games</a>
         <p style="margin-top:20px; font-size:14px; color:#38bdf8; font-weight:bold;">
 🎮 Made by Ishan
 </p>
@@ -322,7 +360,7 @@
         <h2>Engineered for Performance</h2>
         <div class="grid">
             
-           <div class="card">
+        <div class="card" id="basketball">
 
                <img src="images/stephen2.jpg"
      alt="Stephen Curry"
@@ -360,7 +398,7 @@
             
            <!-- Card 2 : Penalty Shootout -->
 
-<div class="card">
+<div class="card" id="football">
 
     <img src="images/ronaldo.jpg"
      alt="Cristiano Ronaldo"
@@ -398,7 +436,7 @@
 
 </div>
 
-   <div class="card">
+  <div class="card" id="cricket">
        
 
 
